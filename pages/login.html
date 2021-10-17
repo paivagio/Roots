@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/login.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="art">
+            <embed id="waves" src="../images/login_form.svg" type="">
+            <embed id="decoration" src="../images/login_decoration.svg" type="">
+            <span id="caption">Bem-vindo de volta</span>
+            <span id="copyright">Copyright © 2000-2021 | Roots ®</span>
+        </div>
+        <div class="fields">
+            <a id="return" href="../index.html">
+                <img src="../images/goback.svg" alt="">
+                <span>Voltar</span>
+            </a>
+            <form>
+                <img src="../images/logo_roots_2.png" alt="">
+                <input type="text" name="username" id="username" placeholder="Usuário"
+                    oninvalid="this.setCustomValidity('Favor preencher este campo')"
+                    oninput="this.setCustomValidity('')" required>
+                <div id="passwordContainer">
+                    <input type="password" name="password" id="password" placeholder="Senha"
+                        autocomplete="current-password" required>
+                    <a id="togglePassword">
+                        <img src="../images/visibility_off.svg" type="">
+                    </a>
+                </div>
+                <div id="remember">
+                    <div>
+                        <input type="checkbox" name="" id="">
+                        <span>Lembre-se de mim</span>
+                    </div>
+                    <a href="">
+                        <span>Esqueceu sua senha?</span>
+                    </a>
+                </div>
+                <button id="submitButton" type="submit">LOGIN</button>
+                <div id="register">
+                    <p>Não tem uma conta ainda?</p>
+                    <a href="../pages/register.html">
+                        <span>Cadastre-se</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../scripts/login.js"></script>
+
+</html>

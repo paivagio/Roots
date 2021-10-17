@@ -57,15 +57,45 @@ body{
 }
 
 .fields form{
+    position: absolute;
+    top: 48px;
+    left: 98px;
+
+    width: 375px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#password, #username{
+#lines{
+    position: absolute;
+    right: 32px;
+    
+    height: 721px;
+}
 
+#header{
+    position: relative;
+    margin-bottom: 31px;
+
+    width: 375px;
+    height: 56px;   
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#header embed{
+    position: relative;
+
+    top: -25px;
+}
+
+#name, #address, #password, #username{
     margin: 18px 0 18px 0;
-    width: 350px;
+    width: 370px;
     height: 43px;
 
     font-family: 'Montserrat', sans-serif;
@@ -79,22 +109,22 @@ body{
     border-bottom: 1px solid #7A7878;
 }
 
-#password::placeholder, #username::placeholder{
+#name::placeholder, #address::placeholder, #password::placeholder, #username::placeholder{
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
 }
 
-#password:focus, #username:focus{
+#name:focus, #address:focus, #password:focus, #username:focus{
     outline: transparent;
 }
 
 
 #togglePassword{
     position: absolute;
-    right: 170px;
-    top: 347px;
+    right: 12px;
+    top: 338px;
 
     background-color: transparent;
     border: 0;
@@ -130,9 +160,9 @@ body{
     margin-top: 15px;
 
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 350px;
+    flex-direction: column;
+    justify-items: center;
+    width: 375px;
     height: 43px;
 
     font-family: 'Montserrat', sans-serif;
@@ -147,13 +177,13 @@ body{
     align-items: center;
 }
 
-#remember a{
-    position: absolute;
-    right: 0px;
+#remember div:first-child{
+    margin-bottom: 9px;
+}
 
+#remember div span strong{
     font-weight: bold;
     color: #009C8E;
-    text-decoration: none;
 }
 
 #remember div input{
@@ -168,6 +198,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     margin-top: 18px;
 
