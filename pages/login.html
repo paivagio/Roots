@@ -24,9 +24,7 @@
             </a>
             <form>
                 <img src="../images/logo_roots_2.png" alt="">
-                <input type="text" name="username" id="username" placeholder="Usuário"
-                    oninvalid="this.setCustomValidity('Favor preencher este campo')"
-                    oninput="this.setCustomValidity('')" required>
+                <input type="text" name="username" id="username" placeholder="Usuário" required>
                 <div id="passwordContainer">
                     <input type="password" name="password" id="password" placeholder="Senha"
                         autocomplete="current-password" required>
@@ -36,14 +34,14 @@
                 </div>
                 <div id="remember">
                     <div>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="" id="rememberMe">
                         <span>Lembre-se de mim</span>
                     </div>
                     <a href="">
                         <span>Esqueceu sua senha?</span>
                     </a>
                 </div>
-                <button id="submitButton" type="submit">LOGIN</button>
+                <button id="submitButton" type="button">LOGIN</button>
                 <div id="register">
                     <p>Não tem uma conta ainda?</p>
                     <a href="../pages/register.html">

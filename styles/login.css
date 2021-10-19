@@ -123,6 +123,8 @@ body{
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+
+    cursor: pointer;
 }
 
 #remember{
@@ -160,6 +162,8 @@ body{
     width: 18px;
     height: 18px;
     margin-right: 7px;
+
+    cursor: pointer;
 }
 
 #register{
@@ -203,6 +207,7 @@ body{
     left: -144px;
 
     z-index: 2;
+    color: black;
 }
 
 #return img{
@@ -230,3 +235,7 @@ body{
 
     z-index: 0;
 }
+
+::placeholder {
+    color: var(--c, #7A7878);
+  }

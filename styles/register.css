@@ -153,6 +153,8 @@ body{
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+
+    cursor: pointer;
 }
 
 #remember{
@@ -190,9 +192,11 @@ body{
     width: 18px;
     height: 18px;
     margin-right: 7px;
+
+    cursor: pointer;
 }
 
-#register{
+#login{
     width: 368px;
 
     display: flex;
@@ -206,13 +210,13 @@ body{
     line-height: 24px;
 }
 
-#register p{
+#login p{
     padding-right: 4px;
     font-weight: 400;
     color: #7A7878;
 }
 
-#register a{
+#login a{
     text-decoration: none;
     font-weight: 700;
     color: #009C8E;
@@ -234,6 +238,7 @@ body{
     left: -144px;
 
     z-index: 2;
+    color: black;
 }
 
 #return img{
