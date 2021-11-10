@@ -1,6 +1,6 @@
 const logo = document.querySelector('#logo');
 const username = document.querySelector('#login a');
-const icon = document.querySelector('#login embed');
+const icon = document.querySelector('#login img');
 const cart = document.querySelector('#cart-count');
 const cart_num = document.querySelector('#cart-count span');
 storage = window.localStorage;
