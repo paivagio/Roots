@@ -10,20 +10,28 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
         <div class="art">
-            <embed id="waves" src="../images/login_form.svg" type="">
-            <embed id="decoration" src="../images/login_decoration.svg" type="">
-            <span id="caption">Bem-vindo de volta</span>
-            <span id="copyright">Copyright © 2000-2021 | Roots ®</span>
+            <div>
+                <img src="../images/login_form.svg" type="">
+            </div>
+            <div>
+                <embed src="../images/login_decoration.svg" type="">
+            </div>
+            <span class="caption">Bem-vindo de volta</span>
+            <span class="copyright">Copyright © 2000-2021 | Roots ®</span>
         </div>
         <div class="fields">
-            <a id="return" href="../index.html">
-                <img src="../images/goback.svg" alt="">
-                <span>Voltar</span>
-            </a>
+            <div class="return">
+                <a href="../index.html">
+                    <img src="../images/goback.svg" alt="">
+                    <span>Voltar</span>
+                </a>
+            </div>
             <form>
-                <img src="../images/logo_roots_2.png" alt="">
+                <div>
+                    <img src="../images/logo_roots_2.png" alt="">
+                </div>
                 <input type="text" name="username" id="username" placeholder="Usuário" required>
                 <div id="passwordContainer">
                     <input type="password" name="password" id="password" placeholder="Senha"

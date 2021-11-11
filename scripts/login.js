@@ -48,7 +48,9 @@ password.addEventListener("keyup", ({ key }) => {
     }
 });
 
-submit.addEventListener('click', login());
+submit.addEventListener('click', function (e) {
+    login();
+});
 
 function login(e) {
     if (!username.value) {
