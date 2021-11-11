@@ -137,8 +137,10 @@ header {
   margin-bottom: 30px;
 }
 
-.order .order-content .order-item img{
+.order .order-content .order-item img {
   /* margin-left: 3.5vw; */
+  width: 100px;
+  height: 100px;
   margin-right: 3.5vw;
 }
 
