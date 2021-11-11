@@ -1,268 +1,344 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 html{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body{
-    margin: 0px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    --gray: #787878;
+    --dark-cyan: #009C8E;
+
+    --screen-md: 480px; /*Mobile devices*/
+    --screen-tb: 768px; /*iPads, Tablets*/
+    --screen-sc: 1024px; /*Small screens, laptops*/
+    --screen-dk: 1200px; /*Desktops, large screens*/
+    /*Extra large screens, TV goes beyond 1201px*/
 }
 
-.wrapper{
+.container{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    font-family: 'Montserrat', sans-serif;
-    height: max-content;
+    background-color: white;
 }
 
 .art{
-    position: relative;
-    width: 867px;
-    height: 719px;
+    width: 60%;
     background-color: #0E022E;
+    display: inline-grid;
+    height: 100vh;
 }
 
-#caption{
-    position: absolute;
-    top: 360px;
-    left: 140px;
+.art>div{
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    height: 100vh;
+}
 
-    font-size: 40px;
-    line-height: 48px;
-    font-weight: 700;
+.art>div:first-child{
+    z-index: 1;
+    justify-content: flex-end;
+}
+
+.art>div>img, .art>div>embed{
+    height: 100%;
+}
+
+.art>span{
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    font-weight: 700; 
     color: white;
 }
 
-#copyright{
-    position: absolute;
-    bottom: 11px;
-    left: 14px;
+.caption{
+    font-size: 2.5rem;
+    line-height: 3rem;
+    justify-content: flex-start;
+    margin-left: 20%;
+}
 
-    font-size: 12px;
-    line-height: 24px;
-    font-weight: 700;
-    color: white;
+.art>span:last-child{
+    justify-content: flex-start;
+    align-self: flex-end;
+    margin: 0.7rem;
+    font-size: 0.75rem;
+    line-height: 1.5rem;
 }
 
 .fields{
-    position: relative;
-    width: 673px;
-    height: 719px;
+    width: 40%;
+    display: inline-grid;
 }
 
-.fields img{
-    width: 180px;
-    height: 220px;
-    margin: 23px 0 17px 0;
-}
-
-.fields form{
-    position: absolute;
-    top: 48px;
-    left: 98px;
-
-    width: 375px;
-
+.return, .fields form, #lines{
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-#lines{
-    position: absolute;
-    right: 32px;
-    
-    height: 721px;
-}
-
-#header{
+.return{
     position: relative;
-    margin-bottom: 31px;
+    z-index: 2;
+    left: -6rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    cursor: pointer;
+}
 
-    width: 375px;
-    height: 56px;   
-
+.return>a{
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: black;
 }
 
-#header embed{
-    position: relative;
+.return>a>span{
+    margin-left: 0.5rem;
+}
 
-    top: -25px;
+.fields form{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 2;
+    margin-left: 3rem;
+    margin-top: 2rem;
+    height: 90%;
+}
+
+#lines{
+    height: 100vh;
+    justify-content: flex-end;
+}
+
+#lines>embed{
+    height: 100%;
+    margin-right: 2rem;
+}
+
+#header{
+    height: 5.5rem;
+    width: 60%;   
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+#header>h1{
+    margin-bottom: .7rem;
+    line-height: 3.5rem;
+}
+
+#header>div{
+    width: 100%;
+}
+
+#header>div>embed{ 
+    height: 100%;
 }
 
 #name, #address, #password, #username{
-    margin: 18px 0 18px 0;
-    width: 370px;
-    height: 43px;
-
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
+    margin: 1rem 0 1rem 0;
+    width: 60%;
+    height: 2.6rem;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    color: #7A7878;
-
+    font-size: 1.13rem;
+    line-height: 1.5rem;
+    color: var(--gray);
     border: 0;
-    border-bottom: 1px solid #7A7878;
+    border-bottom: 1px solid var(--gray);
 }
 
 #name::placeholder, #address::placeholder, #password::placeholder, #username::placeholder{
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.13rem;
+    line-height: 1.5rem;
 }
 
 #name:focus, #address:focus, #password:focus, #username:focus{
     outline: transparent;
 }
 
+#passwordContainer{
+    width: 60%;
+    display: inline-grid;
+}
+
+#password{
+    width: 100%;
+}
+
+#password, #togglePassword{
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+}
 
 #togglePassword{
-    position: absolute;
-    right: 12px;
-    top: 338px;
-
-    background-color: transparent;
-    border: 0;
+    align-items: center;
+    justify-content: flex-end;
     cursor: pointer;
+    width: 10%;
+    margin-left: auto;
+}
+
+#togglePassword>img{
+    height: 40%;
+}
+
+#remember{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    height: 2.6rem;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+    color: var(--gray);
+}
+
+#remember>div{
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
-#togglePassword img{
-    height: 28px;
-    width: 28px;
+#remember>div:first-child{
+    margin-bottom: 9px;
+}
+
+#remember>div>input{
+    accent-color: var(--dark-cyan);
     cursor: pointer;
 }
 
-#submitButton{
-    width: 173px;
-    height: 60px;
-    margin-top: 50px;
+#remember>div>span>strong{
+    color: var(--dark-cyan);
+}
 
+.submit-login{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submitButton{
+    width: 50%;
+    height: 3.6rem;
+    margin-top: 50px;
     background: #009C8E;
     box-shadow: 5px 3px 4px 1px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     border: 0;
-
     color: white;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    cursor: pointer;
-}
-
-#remember{
-    position: relative;
-    margin-top: 15px;
-
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    width: 375px;
-    height: 43px;
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-    color: #7A7878;
-}
-
-#remember div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-#remember div:first-child{
-    margin-bottom: 9px;
-}
-
-#remember div span strong{
-    font-weight: bold;
-    color: #009C8E;
-}
-
-#remember div input{
-    width: 18px;
-    height: 18px;
-    margin-right: 7px;
-
+    font-size: 1.25rem;
+    line-height: 1.5rem;
     cursor: pointer;
 }
 
 #login{
-    width: 368px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-
     margin-top: 18px;
-
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.15rem;
+    line-height: 1.5rem;
 }
 
 #login p{
-    padding-right: 4px;
+    margin-right: 0.5rem;
     font-weight: 400;
-    color: #7A7878;
+    color: var(--gray);
 }
 
 #login a{
     text-decoration: none;
     font-weight: 700;
-    color: #009C8E;
+    color: var(--dark-cyan);
 }
 
-#return{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+@media screen and (max-width: 1300px) and (min-width: 1000px) {
+    .caption{
+        font-size: 1.6rem;
+    }
+    
+    .art>span:last-child{
+        font-size: 0.5rem;
+    }
 
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 20px;
+    #name, #address, #password, #username{
+        font-size: 0.9rem;
+        height: 2rem;
+    }
 
-    width: 88px;
-    height: 43px;
-    top: 55px;
-    left: -144px;
+    #name::placeholder, #address::placeholder, #password::placeholder, #username::placeholder{
+        font-size: 0.9rem;
+    }
+    
+    #remember{
+        font-size: 0.6rem;
+    }
 
-    z-index: 2;
-    color: black;
+    #submitButton{
+        height: 2.5rem;
+        font-size: 1rem;
+        margin-top: 30px;
+    }
+
+    #login{
+        font-size: 0.7rem;
+    }
 }
 
-#return img{
-    height: 43px;
-}
+@media screen and (max-width: 1024px){
+    .container{
+        justify-content: center;
+    }
 
-#return span{
-    margin: 3px 0 0 3px;
-}
+    .art{
+        display: none;
+    }
 
-#waves{
-    position: absolute;
-    height: 725px;
+    .fields{
+        width: 90%;
+    }
 
-    right: -1px;
-    z-index: 1;
-}
+    .fields form{
+        margin-top: 5vh;
+        height: 90vh;
+        align-items: center;
+    }
 
-#decoration{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    height: 725px;
-    width: 850px;
+    .return{
+        left: 0rem;
+    }   
 
-    z-index: 0;
+    #remember{
+        width: 60%;
+    }
+
+    #lines{
+        display: none;
+    }
+
+    #password{
+        margin-top: .5rem;
+    }
+
 }

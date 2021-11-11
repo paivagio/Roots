@@ -1,5 +1,10 @@
 const togglePassword = document.querySelector('#togglePassword');
+const fullname = document.querySelector('#name');
+const address = document.querySelector('#address');
+const username = document.querySelector('#username');
 const password = document.querySelector('#password');
+const submit = document.querySelector('#submitButton');
+storage = window.localStorage;
 
 togglePassword.addEventListener('click', function (e) {
     // toggle the type attribute
@@ -12,3 +17,49 @@ togglePassword.addEventListener('click', function (e) {
     icon.setAttribute('src', src);
 });
 
+fullname.addEventListener("keyup", ({ key }) => {
+    if (key === "Enter") {
+        register();
+    }
+});
+
+address.addEventListener("keyup", ({ key }) => {
+    if (key === "Enter") {
+        register();
+    }
+});
+
+username.addEventListener("keyup", ({ key }) => {
+    if (key === "Enter") {
+        register();
+    }
+});
+
+password.addEventListener("keyup", ({ key }) => {
+    if (key === "Enter") {
+        register();
+    }
+});
+
+submit.addEventListener('click', function (e) {
+    register();
+});
+
+function register() {
+    var database = JSON.parse(storage.getItem('users'));
+
+    const newUser = {
+        "username": username.value,
+        "password": password.value,
+        "name": fullname.value,
+        "address": address.value,
+        "cart": {
+            "count": 0,
+            "products": [],
+        }
+    };
+
+    database.push(newUser)
+    storage.setItem('users', JSON.stringify(database));
+    window.location = '../pages/login.html'
+}

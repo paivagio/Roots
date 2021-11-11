@@ -10,22 +10,30 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="container">
         <div class="art">
-            <embed id="waves" src="../images/login_form.svg" type="">
-            <embed id="decoration" src="../images/login_decoration.svg" type="">
-            <span id="caption">Bem-vindo a Roots</span>
-            <span id="copyright">Copyright © 2000-2021 | Roots ®</span>
+            <div>
+                <img src="../images/login_form.svg" type="">
+            </div>
+            <div>
+                <embed src="../images/login_decoration.svg" type="">
+            </div>
+            <span class="caption">Bem-vindo de volta</span>
+            <span class="copyright">Copyright © 2000-2021 | Roots ®</span>
         </div>
         <div class="fields">
-            <a id="return" href="../index.html">
-                <img src="../images/goback.svg" alt="">
-                <span>Voltar</span>
-            </a>
+            <div class="return">
+                <a href="../index.html">
+                    <img src="../images/goback.svg" alt="">
+                    <span>Voltar</span>
+                </a>
+            </div>
             <form>
                 <div id="header">
                     <h1>Cadastro</h1>
-                    <embed src="../images/roots_beetroot.svg" type="">
+                    <div>
+                        <embed src="../images/roots_beetroot.svg" type="">
+                    </div>
                 </div>
                 <input type="text" name="name" id="name" placeholder="Nome Completo" required>
                 <input type="text" name="address" id="address" placeholder="Endereço" required>
@@ -41,26 +49,31 @@
                 </div>
                 <div id="remember">
                     <div>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="" id="news">
                         <span>Sim, eu quero receber novidades no meu e-mail.</span>
                     </div>
                     <div>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="" id="privacy">
                         <span>Eu aceito os <strong>Termos de Privacidade</strong></span>
                     </div>
                 </div>
-                <button id="submitButton" type="submit">CRIAR CONTA</button>
-                <div id="login">
-                    <p>Já tem uma conta?</p>
-                    <a href="../pages/login.html">
-                        <span>Entrar</span>
-                    </a>
+                <div class="submit-login">
+                    <button id="submitButton" type="button">CRIAR CONTA</button>
+                    <div id="login">
+                        <p>Já tem uma conta?</p>
+                        <a href="../pages/login.html">
+                            <span>Entrar</span>
+                        </a>
+                    </div>
                 </div>
             </form>
-            <embed id="lines" src="../images/lines_register.svg" type="">
+            <div id="lines">
+                <embed src="../images/lines_register.svg" type="">
+            </div>
         </div>
     </div>
 </body>
+
 <script src="../scripts/register.js"></script>
 
 </html>

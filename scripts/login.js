@@ -5,25 +5,9 @@ const password = document.querySelector('#password');
 const remember = document.querySelector('#rememberMe');
 storage = window.localStorage;
 
-const defaultUser = {
-    "username": 'admin',
-    "password": 'admin123',
-    "name": 'admin',
-    "address": 'admin',
-    "cart": {
-        "count": 2,
-        "products": [
-            {
-                "name": 'Salada c/ salmão',
-                "img": 'salmon_salad.jpg',
-                "category": 'SALADAS',
-                "price": 23.90
-            }
-        ],
-    }
-};
-
-storage.setItem('users', JSON.stringify([defaultUser]));
+window.onload = () => {
+    console.log(JSON.parse(storage.getItem('users')));
+}
 
 togglePassword.addEventListener('click', function (e) {
     // toggle the type attribute
@@ -82,7 +66,8 @@ function login(e) {
             window.location.href = "../index.html";
         }
         else {
-            console.log(storage.getItem('access'));
+            //console.log(storage.getItem('access'));
+            window.alert("Usuário ou senha incorreto!")
         }
     }
 

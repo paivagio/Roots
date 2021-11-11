@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 
-
 body{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -82,10 +81,6 @@ body{
     display: flex;
 }
 
-.fields form{
-    height: 100vh;
-}
-
 .return{
     position: relative;
     z-index: 2;
@@ -111,6 +106,7 @@ body{
 }
 
 .fields form{
+    height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -135,6 +131,17 @@ body{
     color: var(--gray);
     border: 0;
     border-bottom: 1px solid var(--gray);
+}
+
+#password::placeholder, #username::placeholder{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.13rem;
+    line-height: 1.5rem;
+}
+
+#password:focus, #username:focus{
+    outline: transparent;
 }
 
 #passwordContainer{
@@ -229,6 +236,7 @@ body{
     font-weight: 700;
     color: var(--dark-cyan);
 }
+
 
 @media screen and (max-width: 1300px) and (min-width: 1000px) {
     .caption{

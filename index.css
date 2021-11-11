@@ -148,6 +148,7 @@ header{
     top: -25%;
     right: 5%;
     display: grid;
+    opacity: 0;
 }
 
 #cart-count embed, #cart-count span{
@@ -319,6 +320,7 @@ header{
     border-radius: 20px 5px 40px;
     text-decoration: none;
     margin-left: auto;
+    cursor: pointer;
 }
 
 #product-card>a>span{
