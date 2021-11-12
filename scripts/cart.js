@@ -27,15 +27,24 @@ window.onload = () => {
   }
   total = Number(total.toFixed(2));
   total = total.toString();
-  if (total.length < 5) {
+  if (total.split('.').at(-1).length !== 2) {
     total = total + '0';
+  }
+  if (total.length == 2) {
+    total = '0.00';
   }
   resume.textContent = 'R$ ' + total;
   totalAmount.textContent = 'R$ ' + total;
 }
 
+String.prototype.toProperCase = function () {
+  return this.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+};
+
 function loadCart() {
-  var cart = JSON.parse(storage.getItem('currentUser')).cart;
+  var access = JSON.parse(storage.getItem('access'));
+  var user = access ? JSON.parse(storage.getItem('currentUser')) : JSON.parse(storage.getItem('nonLoggedUser'));
+  var cart = user.cart;
 
   // "products": [
   //   {
@@ -45,14 +54,36 @@ function loadCart() {
   //       "price": 23.90
   //   }
   // ],
-  var item = ""
+  var groupedProducts = [];
+  let counts = {};
+  cart.products.forEach(el => counts[el.name] = 1 + (counts[el.name] || 0));
+  console.log(counts);
+
   for (const product of cart.products) {
+    var newProduct = product;
+    newProduct.count = counts[product.name];
+    var match = false;
+    for (const p of groupedProducts) {
+      if (p.name === newProduct.name) {
+        match = true;
+      }
+    }
+
+    if (!match) {
+      groupedProducts.push(newProduct);
+    }
+  }
+
+  console.log(groupedProducts);
+
+  var item = ""
+  for (const product of groupedProducts) {
     item += '<div class="order-item">'
     item += '<div>'
     item += '<img src="../images/products/' + product.img + '" alt="">'
     item += '</div>'
     item += '<div class="order-info">'
-    item += '<p><b>' + product.name + '</b></p>'
+    item += '<p><b>' + product.name.toProperCase() + '</b></p>'
     item += '<p>Categoria: <b>' + product.category + '</b></p>'
     item += '<p>Peso: <b>250g</b></p>'
     item += '</div>'
@@ -63,7 +94,7 @@ function loadCart() {
 
     item += '<div class="order-amount">'
     item += '<p>Quantidade:</p>'
-    item += '<input type="number" value="1"/>'
+    item += '<input type="number" value="' + product.count.toString() + '"/>'
     item += '</div>'
     item += '</div>'
   }

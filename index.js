@@ -83,7 +83,7 @@ function addToCart(obj) {
     const symbol = parent.querySelector('#product-symbol');
 
     const product = {
-        "name": name.textContent,
+        "name": name.textContent.toLowerCase(),
         "img": imageSrc.src.split("/").at(-1),
         "category": category.textContent,
         "price": price.textContent

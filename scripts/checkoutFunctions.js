@@ -34,6 +34,9 @@ window.onload = () => {
   if (total.length < 5) {
     total = total + '0';
   }
+  if (total.length == 2) {
+    total = '0.00';
+  }
   resume.textContent = 'R$ ' + total;
   totalAmount.textContent = 'R$ ' + total;
 
