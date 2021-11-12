@@ -83,7 +83,7 @@ function addToCart(obj) {
 
     const product = {
         "name": name.textContent,
-        "img": imageSrc.src,
+        "img": imageSrc.src.split("/").at(-1),
         "category": category.textContent,
         "price": price.textContent
     }
