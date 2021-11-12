@@ -57,6 +57,46 @@ body {
   background-color: #e87121;
 }
 
+.cart-li{
+  display: inline-grid;
+}
+
+.cart-li div, .cart-li a{
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+}
+
+#cart img{
+  height: 85%;
+}
+
+#cart-count{
+  height:50%;
+  width: 50%;
+  display: grid;
+  margin-left: auto;
+  opacity: 0;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+#cart-count embed, #cart-count span{
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#cart-count span{
+  z-index: 2;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+
 .container {
   margin-left: 102px;
   width: 100%;

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../styles/checkout.css">
   <title>Checkout | Roots</title>
 </head>
+
 <body>
   <div class="wrapper">
     <div class="sidebar">
@@ -27,10 +28,14 @@
             <img id="storeIcon" src="../images/store.png" alt="store">
           </a>
         </li>
-        <li>
-          <a href="/pages/cart.html">
-            <img id="cartIcon" src="../images/shopping_cart.png" alt="cart">
+        <li class="cart-li">
+          <a id="cart" href="../pages/cart.html">
+            <img src="../images/shopping_cart.svg" type="">
           </a>
+          <div id="cart-count">
+            <embed src="../images/circle_cart.svg" type="">
+            <span>1</span>
+          </div>
         </li>
         <li>
           <a href="#">
@@ -40,7 +45,7 @@
         <li>
           <a></a>
         </li>
-        
+
         <li>
           <a href="#">
             <img id="profileIcon" src="../images/profile.jpg" alt="profile">
@@ -52,155 +57,159 @@
           </a>
         </li>
       </ul>
-      </div>
     </div>
+  </div>
 
-    <div class="container">
-      <header class="header">
-        <h1>Checkout</h1>
-        <img src="../images/carrot.png" alt="carrot">   
-      </header>
+  <div class="container">
+    <header class="header">
+      <h1>Checkout</h1>
+      <img src="../images/carrot.png" alt="carrot">
+    </header>
 
 
-      <div class="widgets">
-        <div class="payment">
-          <p id="p-payment">Pagamento</p>
-          <div id="rectangle-payment" class="payment-content">
+    <div class="widgets">
+      <div class="payment">
+        <p id="p-payment">Pagamento</p>
+        <div id="rectangle-payment" class="payment-content">
 
-            <!-- Paypal -->
-            <div class="payment-item">
-              <div class="payment-logo">
-                <input type="radio" id="payment-select-box" name="payment-selected" onclick="hideCardRegistration()"/>
-                <img src="../images/paypal.png" alt="paypal-logo">
-              </div>
-
-              <div class="payment-info">
-                <p id="p-paypal">até 12x</p>
-              </div>
-  
-              <div class="payment-flags">
-                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo"/>
-                <img src="../images/visa.png" alt="visa" id="visa-logo"/>
-              </div>
+          <!-- Paypal -->
+          <div class="payment-item">
+            <div class="payment-logo">
+              <input type="radio" id="payment-select-box" name="payment-selected" onclick="hideCardRegistration()" />
+              <img src="../images/paypal.png" alt="paypal-logo">
             </div>
 
-            <!-- Cartão -->
-            <div class="payment-item card-register">
-              <div class="payment-logo">
-                <input type="radio" id="payment-select-box" name="payment-selected" onclick="showCardRegistration()"/>
-                <img src="../images/card.png" alt="card">
-                <p id="p-card">Cartão</p>
-              </div>
-
-              <div class="payment-info">
-                <p>até 12x</p>
-              </div>
-  
-              <div class="payment-flags">
-                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo"/>
-                <img src="../images/visa.png" alt="visa" id="visa-logo"/>
-              </div>
+            <div class="payment-info">
+              <p id="p-paypal">até 12x</p>
             </div>
 
-            <div class="card-registration" style="display: none">
-              <form>
-                <p>Número do cartão</p>
-                <input type="text" placeholder="0000 0000 0000 0000" id="card-info"/>
-  
-                <p id="p-card-name">Nome no cartão</p>
-                <input  type="text" placeholder="NOME" id="card-info"/>
-                
-                <p>Data de validade</p>
-                <input type="text" placeholder="dd/mm/yyyy" id="card-info"/>
-  
-                <p id="p-card-cvv">CCV</p>
-                <input type="text" placeholder="123" id="card-info"/>
-              </form>
+            <div class="payment-flags">
+              <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo" />
+              <img src="../images/visa.png" alt="visa" id="visa-logo" />
             </div>
-
-
-            <!-- Boleto -->
-            <div class="payment-item">
-              <div class="payment-logo">
-                <input type="radio" id="payment-select-box" name="payment-selected" onclick="hideCardRegistration()"/>
-                <img src="../images/boleto.png" alt="boleto">
-                <p id="p-card">Boleto</p>
-              </div>
-
-              <div class="payment-info">
-                <p>à vista</p>
-              </div>
-  
-              <div class="payment-flags">
-                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo" style="opacity:0"/>
-                <img src="../images/visa.png" alt="visa" id="visa-logo" style="opacity:0"/>
-              </div>
-            </div>
-
-            <!-- Pix -->
-            <div class="payment-item">
-              <div class="payment-logo">
-                <input type="radio" id="payment-select-box" name="payment-selected" onclick="hideCardRegistration()"/>
-                <img src="../images/pix.png" alt="pix">
-              </div>
-
-              <div class="payment-info">
-                <p>à vista</p>
-              </div>
-  
-              <div class="payment-flags">
-                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo" style="opacity:0"/>
-                <img src="../images/visa.png" alt="visa" id="visa-logo" style="opacity:0"/>
-              </div>
-            </div>
-
           </div>
-        </div>  
-        
-        <div class="summary">
-          <p id="summary-label">Resumo</p>
-          <div id="rectangle-summary" class="summary-content">
 
-            <div class="status-acount">
-              <span>USER0001</span>
-            </div>
-            <div class="order-code">
-              <p>Código do pedido</p>
-              <span>R0910GYA21</span> 
-            </div>
-            <div class="order-cupom">
-              <input type="text" placeholder="CÓDIGO DO CUPOM"/>
-              <button>APLICAR</button>
+          <!-- Cartão -->
+          <div class="payment-item card-register">
+            <div class="payment-logo">
+              <input type="radio" id="payment-select-box" name="payment-selected" onclick="showCardRegistration()" />
+              <img src="../images/card.png" alt="card">
+              <p id="p-card">Cartão</p>
             </div>
 
-            <div class="division-line">
+            <div class="payment-info">
+              <p>até 12x</p>
             </div>
 
-            <div class="order-summary-value">
-              <p>Resumo do pedido</p>
-              <span>R$ 39.80</span>
+            <div class="payment-flags">
+              <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo" />
+              <img src="../images/visa.png" alt="visa" id="visa-logo" />
             </div>
-
-            <div class="order-discount-value">
-              <p>Descontos</p>
-              <span>R$ 0.00</span>
-            </div>
-
-            <div class="order-total-value">
-              <p>Total</p>
-              <span>R$ 39.80</span>
-            </div>
-
-            <div class="btn-checkout">
-              <button onclick="checkoutValidate()">CHECKOUT</button>
-            </div>
-
           </div>
-          <p id="copyrights">Copyright © 2000-2021 | Roots ®</p>
+
+          <div class="card-registration" style="display: none">
+            <form>
+              <p>Número do cartão</p>
+              <input type="text" placeholder="0000 0000 0000 0000" id="card-info" />
+
+              <p id="p-card-name">Nome no cartão</p>
+              <input type="text" placeholder="NOME" id="card-info" />
+
+              <p>Data de validade</p>
+              <input type="text" placeholder="dd/mm/yyyy" id="card-info" />
+
+              <p id="p-card-cvv">CVV</p>
+              <input type="text" placeholder="123" id="card-info" />
+
+              <p id="p-card-instalment">Parcelas</p>
+              <input type="number" value="1" id="card-info" min="1" max="12" />
+            </form>
+          </div>
+
+
+          <!-- Boleto -->
+          <div class="payment-item">
+            <div class="payment-logo">
+              <input type="radio" id="payment-select-box" name="payment-selected" onclick="hideCardRegistration()" />
+              <img src="../images/boleto.png" alt="boleto">
+              <p id="p-card">Boleto</p>
+            </div>
+
+            <div class="payment-info">
+              <p>à vista</p>
+            </div>
+
+            <div class="payment-flags">
+              <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo" style="opacity:0" />
+              <img src="../images/visa.png" alt="visa" id="visa-logo" style="opacity:0" />
+            </div>
+          </div>
+
+          <!-- Pix -->
+          <div class="payment-item">
+            <div class="payment-logo">
+              <input type="radio" id="payment-select-box" name="payment-selected" onclick="hideCardRegistration()" />
+              <img src="../images/pix.png" alt="pix">
+            </div>
+
+            <div class="payment-info">
+              <p>à vista</p>
+            </div>
+
+            <div class="payment-flags">
+              <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo" style="opacity:0" />
+              <img src="../images/visa.png" alt="visa" id="visa-logo" style="opacity:0" />
+            </div>
+          </div>
+
         </div>
+      </div>
+
+      <div class="summary">
+        <p id="summary-label">Resumo</p>
+        <div id="rectangle-summary" class="summary-content">
+
+          <div class="status-acount">
+            <span>USER0001</span>
+          </div>
+          <div class="order-code">
+            <p>Código do pedido</p>
+            <span>R0910GYA21</span>
+          </div>
+          <div class="order-cupom">
+            <input type="text" placeholder="CÓDIGO DO CUPOM" />
+            <button>APLICAR</button>
+          </div>
+
+          <div class="division-line">
+          </div>
+
+          <div class="order-summary-value">
+            <p>Resumo do pedido</p>
+            <span>R$ 39.80</span>
+          </div>
+
+          <div class="order-discount-value">
+            <p>Descontos</p>
+            <span>R$ 0.00</span>
+          </div>
+
+          <div class="order-total-value">
+            <p>Total</p>
+            <span>R$ 39.80</span>
+          </div>
+
+          <div class="btn-checkout">
+            <button onclick="checkoutValidate()">FINALIZAR PEDIDO</button>
+          </div>
+
+        </div>
+        <p id="copyrights">Copyright © 2000-2021 | Roots ®</p>
       </div>
     </div>
   </div>
+  </div>
 </body>
 <script type="text/javascript" src="../scripts/checkoutFunctions.js"></script>
+
 </html>
