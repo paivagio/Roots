@@ -9,59 +9,59 @@ const total_price_local = document.querySelector('#total_price');
 const opcao = document.getElementById('Dropdown');
 
 produtos = [{
-    "name": "Salada César",
-    "img": "../images/products/cesar_salad.png",
-    "category": "SALADAS",
-    "price": "15.90"
-    },
-    {
-    "name": "Salada Mista",
-    "img": "../images/products/mixed_salad.png",
-    "category": "SALADAS",
-    "price": "20.90"
-    },
-    {
-    "name": "Salada c/ Salmão",
-    "img": "../images/products/salmon_salad.jpg",
-    "category": "SALADAS",
-    "price": "23.90"
-    },
-    {
-    "name": "Sanduíche de Presunto",
-    "img": "../images/products/sanduiche_presunto.jpg",
-    "category": "SANDUÍCHES",
-    "price": "12.90"
-    },
-    {
-    "name": "Sanduíche de Peito de Peru",
-    "img": "../images/products/sanduiche_peito_peru.jpg",
-    "category": "SANDUÍCHES",
-    "price": "14.90"
-    },
-    {
-    "name": "Misto Quente",
-    "img": "../images/products/sanduiche_misto_quente.jpg",
-    "category": "SANDUÍCHES",
-    "price": "9.90"
-    },
-    {
-    "name": "Suco de Laranja Natural",
-    "img": "../images/products/suco_laranja.jpg",
-    "category": "BEBIDAS",
-    "price": "6.90"
-    },
-    {
-    "name": "Suco de Uva Integral",
-    "img": "../images/products/suco-de-uva-natural.jpeg",
-    "category": "BEBIDAS",
-    "price": "6.90"
-    },
-    {
-    "name": "Água Mineral",
-    "img": "../images/products/agua_mineral.jpg",
-    "category": "BEBIDAS",
-    "price": "4.90"
-    }]
+  "name": "Salada César",
+  "img": "../images/products/cesar_salad.png",
+  "category": "SALADAS",
+  "price": "15.90"
+},
+{
+  "name": "Salada Mista",
+  "img": "../images/products/mixed_salad.png",
+  "category": "SALADAS",
+  "price": "20.90"
+},
+{
+  "name": "Salada c/ Salmão",
+  "img": "../images/products/salmon_salad.jpg",
+  "category": "SALADAS",
+  "price": "23.90"
+},
+{
+  "name": "Sanduíche de Presunto",
+  "img": "../images/products/sanduiche_presunto.jpg",
+  "category": "SANDUÍCHES",
+  "price": "12.90"
+},
+{
+  "name": "Sanduíche de Peito de Peru",
+  "img": "../images/products/sanduiche_peito_peru.jpg",
+  "category": "SANDUÍCHES",
+  "price": "14.90"
+},
+{
+  "name": "Misto Quente",
+  "img": "../images/products/sanduiche_misto_quente.jpg",
+  "category": "SANDUÍCHES",
+  "price": "9.90"
+},
+{
+  "name": "Suco de Laranja Natural",
+  "img": "../images/products/suco_laranja.jpg",
+  "category": "BEBIDAS",
+  "price": "6.90"
+},
+{
+  "name": "Suco de Uva Integral",
+  "img": "../images/products/suco-de-uva-natural.jpeg",
+  "category": "BEBIDAS",
+  "price": "6.90"
+},
+{
+  "name": "Água Mineral",
+  "img": "../images/products/agua_mineral.jpg",
+  "category": "BEBIDAS",
+  "price": "4.90"
+}]
 
 carrinho = [{}]
 
@@ -203,45 +203,45 @@ function addToCart(obj) {
 
   console.log(imageSrc.src.split("/"))
   const product = {
-      "name": name.textContent,
-      "img": imageSrc.src.split('/').at(-1),
-      "category": category.textContent,
-      "price": price.textContent
+    "name": name.textContent.toLowerCase(),
+    "img": imageSrc.src.split('/').at(-1),
+    "category": category.textContent,
+    "price": price.textContent
   }
 
   if (symbol.textContent === '✖') { //remove
-      var products = user.cart.products;
-      for (var i = 0; i < products.length; i++) {
-          if (products[i].name === product.name) {
-              products.splice(i, 1);
-          }
+    var products = user.cart.products;
+    for (var i = 0; i < products.length; i++) {
+      if (products[i].name === product.name) {
+        products.splice(i, 1);
       }
-      user.cart.products = products;
-      user.cart.count -= 1
-      symbol.textContent = '+';
-      symbol.style.fontSize = '3rem';
+    }
+    user.cart.products = products;
+    user.cart.count -= 1
+    symbol.textContent = '+';
+    symbol.style.fontSize = '3rem';
   } else {
-      user.cart.products.push(product);
-      user.cart.count += 1
-      symbol.textContent = '✖';
-      symbol.style.fontSize = '1.5rem';
+    user.cart.products.push(product);
+    user.cart.count += 1
+    symbol.textContent = '✖';
+    symbol.style.fontSize = '1.5rem';
   }
 
   var numProducts = user.cart.count;
   console.log(user.cart);
   console.log(numProducts);
   if (numProducts <= 0) {
-      cart.style.opacity = "0";
-      user.cart.count = 0;
+    cart.style.opacity = "0";
+    user.cart.count = 0;
   } else {
-      cart_num.textContent = numProducts.toString();
-      cart.style.opacity = "1";
+    cart_num.textContent = numProducts.toString();
+    cart.style.opacity = "1";
   }
 
   if (access) {
-      storage.setItem('currentUser', JSON.stringify(user));
+    storage.setItem('currentUser', JSON.stringify(user));
   } else {
-      storage.setItem('nonLoggedUser', JSON.stringify(user));
+    storage.setItem('nonLoggedUser', JSON.stringify(user));
   }
 
   preenche_tabela();
@@ -250,15 +250,15 @@ function addToCart(obj) {
 
 exit.addEventListener('click', function (e) {
   storage.setItem('access', false);
-  
+
   const nonLoggedUser = {
     "username": 'offline',
     "password": 'offline',
     "name": 'offline',
     "address": 'offline',
     "cart": {
-        "count": 0,
-        "products": [],
+      "count": 0,
+      "products": [],
     }
   }
   storage.setItem('nonLoggedUser', JSON.stringify(nonLoggedUser));
