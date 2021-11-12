@@ -143,14 +143,18 @@ header {
   align-items: center;
 }
 
-.payment .payment-content .payment-item .payment-logo #payment-select-box { /* Select box */
+#payment-select-box { /* Select box */
   height:20px; 
   width:20px;
   margin-right: 20px;
   margin-left: 40px;
 }
 
-.payment .payment-content .payment-item .payment-logo #p-card { /* Cartao */
+#p-paypal {
+  margin-left: 17px;
+}
+
+#p-card { /* Cartao */
   font-size: 1.8rem;
   font-weight: 500;
   margin-left: 10px;
@@ -172,6 +176,30 @@ header {
 
 .payment .payment-content .payment-item .payment-flags #mastercard-logo { 
   margin-right: 1.7vw;
+}
+
+.card-registration {
+  flex-direction: column;
+  width: 100%;
+  margin-left: 80px;
+}
+
+.card-registration p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding-top: 12px;
+}
+
+.card-registration input {
+  border: 2px solid #E8E7E7;
+  box-sizing: border-box;
+  border-radius: 5px;
+  
+  font-size: 1.8rem;
+
+  height: 46px;
+  width: 90%;
+  padding-left: 10px;
 }
 
 /* <---------------------------> */
@@ -222,7 +250,7 @@ header {
 }
 
 .summary .summary-content .status-acount {
-  background-color: #E8E7E7;
+  background-color: #009C8E;
   width: 100%;
   padding: 15px;
   border-radius: 12px;
@@ -232,7 +260,7 @@ header {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 2.4rem;
-  color: #7A7878;
+  color: #FFFFFF;
 
   display: flex;
   align-items: center;
@@ -376,6 +404,7 @@ header {
   color: white;
 }
 
+
 #copyrights {
   font-size: 1.2rem;
   line-height: 24px;
@@ -422,7 +451,7 @@ header {
   }
 
   .widgets .payment .payment-item {
-    width: 90%;
+    /* width: 90%; */
     justify-content: space-between;
   }
 
