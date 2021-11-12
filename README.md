@@ -3,4 +3,4 @@
  </div>
 
 # Roots
-A e-commerce website for a imaginary food delivery brand.
+A e-commerce website for an imaginary food delivery brand.
