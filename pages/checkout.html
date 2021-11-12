@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/checkout.css">
+  <title>Checkout | Roots</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="sidebar">
+      <ul>
+        <li>
+          <a href="#">
+            <img id="homeIcon" src="../images/home.svg" alt="home">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img id="favIcon" src="../images/favorite.png" alt="favorite">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img id="storeIcon" src="../images/store.png" alt="store">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img id="configIcon" src="../images/config.png" alt="config">
+          </a>
+        </li>
+        <li>
+          <a></a>
+        </li>
+        
+        <li>
+          <a href="#">
+            <img id="profileIcon" src="../images/profile.jpg" alt="profile">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img id="exitIcon" src="../images/exit.png" alt="exit">
+          </a>
+        </li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <header class="header">
+        <h1>Checkout</h1>
+        <img src="../images/carrot.png" alt="carrot">   
+      </header>
+
+
+      <div class="widgets">
+        <div class="payment">
+          <p id="p-payment">Pagamento</p>
+          <div id="rectangle-payment" class="payment-content">
+
+            <!-- Paypal -->
+            <div class="payment-item">
+              <div class="payment-logo">
+                <input type="radio" id="payment-select-box"/>
+                <img src="../images/paypal.png" alt="paypal-logo">
+              </div>
+
+              <div class="payment-info">
+                <p>até 12x</p>
+              </div>
+  
+              <div class="payment-flags">
+                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo"/>
+                <img src="../images/visa.png" alt="visa" id="visa-logo"/>
+              </div>
+            </div>
+
+            <!-- Cartão -->
+            <div class="payment-item">
+              <div class="payment-logo">
+                <input type="radio" id="payment-select-box"/>
+                <img src="../images/card.png" alt="paypal-logo">
+                <p id="p-card">Cartão</p>
+              </div>
+
+              <div class="payment-info">
+                <p>até 12x</p>
+              </div>
+  
+              <div class="payment-flags">
+                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo"/>
+                <img src="../images/visa.png" alt="visa" id="visa-logo"/>
+              </div>
+            </div>
+
+
+            <!-- Boleto -->
+            <div class="payment-item">
+              <div class="payment-logo">
+                <input type="radio" id="payment-select-box"/>
+                <img src="../images/paypal.png" alt="paypal-logo">
+              </div>
+
+              <div class="payment-info">
+                <p>à vista</p>
+              </div>
+  
+              <div class="payment-flags">
+                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo"/>
+                <img src="../images/visa.png" alt="visa" id="visa-logo"/>
+              </div>
+            </div>
+
+
+            <!-- Pix -->
+            <div class="payment-item">
+              <div class="payment-logo">
+                <input type="radio" id="payment-select-box"/>
+                <img src="../images/paypal.png" alt="paypal-logo">
+              </div>
+
+              <div class="payment-info">
+                <p>à vista</p>
+              </div>
+  
+              <div class="payment-flags">
+                <img src="../images/mastercard.png" alt="mastercard" id="mastercard-logo"/>
+                <img src="../images/visa.png" alt="visa" id="visa-logo"/>
+              </div>
+            </div>
+
+          </div>
+        </div>  
+        
+        <div class="summary">
+          <p id="summary-label">Resumo</p>
+          <div id="rectangle-summary" class="summary-content">
+
+            <div class="status-acount">
+              <span>CONTA NAO REGISTRADA</span>
+            </div>
+            <div class="order-code">
+              <p>Código do pedido</p>
+              <span>R0910GYA21</span> 
+            </div>
+            <div class="order-cupom">
+              <input type="text" placeholder="CÓDIGO DO CUPOM"/>
+              <button>APLICAR</button>
+            </div>
+
+            <div class="division-line">
+            </div>
+
+            <div class="order-summary-value">
+              <p>Resumo do pedido</p>
+              <span>R$ 39.80</span>
+            </div>
+
+            <div class="order-discount-value">
+              <p>Descontos</p>
+              <span>R$ 0.00</span>
+            </div>
+
+            <div class="order-total-value">
+              <p>Total</p>
+              <span>R$ 39.80</span>
+            </div>
+
+            <div class="btn-checkout">
+              <button>CHECKOUT</button>
+            </div>
+          </div>
+          <p id="copyrights">Copyright © 2000-2021 | Roots ®</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
