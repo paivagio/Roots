@@ -48,6 +48,7 @@ function login(e) {
         password.style.setProperty("--c", "red");
     }
     else {
+        var loggingFromCart = JSON.parse(storage.getItem('loggingFromCart'));
         password.style.outline = 'transparent';
         var database = JSON.parse(storage.getItem('users'));
         var token = false;
@@ -55,6 +56,11 @@ function login(e) {
         for (var i = 0; i < database.length; i++) {
             if (database[i].username === username.value && database[i].password === password.value) {
                 token = true;
+                if (loggingFromCart) {
+                    database[i].cart = JSON.parse(storage.getItem('nonLoggedUser')).cart;
+                    storage.setItem('users', JSON.stringify(database));
+                    storage.setItem('loggingFromCart', false);
+                }
                 currentUser = database[i];
                 break;
             }

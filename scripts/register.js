@@ -58,6 +58,11 @@ function register() {
             "products": [],
         }
     };
+    var loggingFromCart = JSON.parse(storage.getItem('loggingFromCart'));
+    if (loggingFromCart) {
+        newUser.cart = JSON.parse(storage.getItem('nonLoggedUser')).cart;
+        storage.setItem('loggingFromCart', false);
+    }
 
     database.push(newUser)
     storage.setItem('users', JSON.stringify(database));

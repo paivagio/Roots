@@ -9,6 +9,7 @@ window.onload = function (e) {
     var firstTime = JSON.parse(storage.getItem('firstTime'));
     //console.log(firstTime);
     if (!firstTime) {
+        storage.setItem('loggingFromCart', false);
         storage.setItem('access', false);
         storage.setItem('firstTime', true);
         const nonLoggedUser = {

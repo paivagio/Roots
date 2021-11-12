@@ -5,6 +5,7 @@ const usernameDecoration = document.querySelector('.status-acount');
 const username = document.querySelector('.status-acount span');
 const resume = document.querySelector('.order-summary-value span');
 const totalAmount = document.querySelector('.order-total-value span');
+const checkout = document.querySelector('#checkout-btn');
 
 window.onload = () => {
   loadCart();
@@ -57,7 +58,7 @@ function loadCart() {
   var groupedProducts = [];
   let counts = {};
   cart.products.forEach(el => counts[el.name] = 1 + (counts[el.name] || 0));
-  console.log(counts);
+  //console.log(counts);
 
   for (const product of cart.products) {
     var newProduct = product;
@@ -74,7 +75,7 @@ function loadCart() {
     }
   }
 
-  console.log(groupedProducts);
+  //console.log(groupedProducts);
 
   var item = ""
   for (const product of groupedProducts) {
@@ -118,3 +119,13 @@ exit.addEventListener('click', function (e) {
   storage.setItem('nonLoggedUser', JSON.stringify(nonLoggedUser));
   window.location = "../index.html";
 });
+
+checkout.addEventListener('click', function (e) {
+  var access = JSON.parse(storage.getItem('access'));
+  if (access) {
+    window.location = "../pages/checkout.html";
+  } else {
+    storage.setItem('loggingFromCart', true);
+    window.location = "../pages/login.html";
+  }
+})
