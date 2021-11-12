@@ -36,7 +36,7 @@ window.onload = function (e) {
                         "name": 'Salada c/ salmão',
                         "img": 'salmon_salad.jpg',
                         "category": 'SALADAS',
-                        "price": 23.90
+                        "price": '23.90'
                     }
                 ],
             }
