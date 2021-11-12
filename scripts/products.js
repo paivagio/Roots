@@ -5,6 +5,8 @@ storage = window.localStorage;
 const cart = document.querySelector('#cart-count');
 const cart_num = document.querySelector('#cart-count span');
 const exit = document.querySelector('#exitIcon');
+const total_price_local = document.querySelector('#total_price');
+const opcao = document.getElementById('Dropdown');
 
 produtos = [{
     "name": "Salada César",
@@ -63,27 +65,52 @@ produtos = [{
 
 carrinho = [{}]
 
+opcao.addEventListener("change", function(){
+  var html = '';
+  for (var i = 0; i < produtos.length; i++) {
+      dados = produtos[i];
+      console.log(opcao)
+      if (dados.category == opcao.value || opcao.value == "todos"){
+        html += '<div id="product-card">';
+        html +=    '<div>';
+        html +=        '<img id="product-image" src="' + dados.img + '" alt=""></img>';
+        html +=    '</div>';
+        html +=    '<div>';
+        html +=        '<span id="product-category">' + dados.category + '</span>';
+        html +=        '<p id="product-name">' + dados.name + '</p>';
+        html +=        '<span id="product-price">R$' + dados.price + '</span>';
+        html +=    '</div>';
+        html +=    '<a onclick="addToCart(this)">';
+        html +=        '<span id="product-symbol">+</span>';
+        html +=     '</a>';
+        html += '</div>';
+      }
+  }
+  tabela.innerHTML = html;
+})
+
 window.onload = function (e) {
   var html = '';
   for (var i = 0; i < produtos.length; i++) {
       dados = produtos[i];
-
-      html += '<div id="product-card">';
-      html +=    '<div>';
-      html +=        '<img id="product-image" src="' + dados.img + '" alt=""></img>';
-      html +=    '</div>';
-      html +=    '<div>';
-      html +=        '<span id="product-category">' + dados.category + '</span>';
-      html +=        '<p id="product-name">' + dados.name + '</p>';
-      html +=        '<span id="product-price">R$' + dados.price + '</span>';
-      html +=    '</div>';
-      html +=    '<a onclick="addToCart(this)">';
-      html +=        '<span id="product-symbol">+</span>';
-      html +=     '</a>';
-      html += '</div>';
+      console.log(opcao)
+      if (dados.category == opcao.value || opcao.value == "todos"){
+        html += '<div id="product-card">';
+        html +=    '<div>';
+        html +=        '<img id="product-image" src="' + dados.img + '" alt=""></img>';
+        html +=    '</div>';
+        html +=    '<div>';
+        html +=        '<span id="product-category">' + dados.category + '</span>';
+        html +=        '<p id="product-name">' + dados.name + '</p>';
+        html +=        '<span id="product-price">R$' + dados.price + '</span>';
+        html +=    '</div>';
+        html +=    '<a onclick="addToCart(this)">';
+        html +=        '<span id="product-symbol">+</span>';
+        html +=     '</a>';
+        html += '</div>';
+      }
   }
   tabela.innerHTML = html;
-
   
   var access = JSON.parse(storage.getItem('access'));
   //console.log(access);
@@ -92,58 +119,74 @@ window.onload = function (e) {
       document.querySelector('#profileIcon').src = '../images/user_icon_signed.svg';
       document.querySelector('#exitIcon').style.display = 'block';
       var numProducts = currentUser.cart.count;
-      console.log(numProducts)
       if (numProducts > 0) {
           cart_num.textContent = numProducts.toString();
           cart.style.opacity = "1";
       }
   }
-
   preenche_tabela();
-
 };
 
 function preenche_tabela() {
-  var html = ''
   var access = JSON.parse(storage.getItem('access'));
   var user = access ? JSON.parse(storage.getItem('currentUser')) : JSON.parse(storage.getItem('nonLoggedUser'));
-  const carrinho = user.cart;
-  for (var i = 0; i < carrinho.products.length; i++) {
-      dados_compra = carrinho.products[i];
-      html +=                      '<tr>'
-      html +=                          '<td style="width: 50%;">'
-      html +=                              dados_compra.name
-      html +=                          '</td>'
-      html +=                          '<td style="width: 10%;" class="td-right">'
-      html +=                              '1'
-      html +=                          '</td>'
-      html +=                          '<td style="width: 40%;" class="td-right">'
-      html +=                              dados_compra.price
-      html +=                          '</td>'
-      html +=                      '</tr>'
-  }
-  tabela_compra.innerHTML = html;
-}
+  var cartt = user.cart;
+  var groupedProducts = [];
+  let counts = {};
+  cartt.products.forEach(el => counts[el.name] = 1 + (counts[el.name] || 0));
+  for (const product of cartt.products) {
+    var newProduct = product;
+    newProduct.count = counts[product.name];
+    var match = false;
+    for (const p of groupedProducts) {
+      if (p.name === newProduct.name) {
+        match = true;
+      }
+    }
 
-
-function dropDownFunction() {
-  document.getElementById("Dropdown").classList.toggle("show");
-}
-
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("Dropdown");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
+    if (!match) {
+      groupedProducts.push(newProduct);
     }
   }
+
+  console.log(groupedProducts)
+
+  var html = '';
+  var total_price = 0;
+
+  for (var i = 0; i < groupedProducts.length; i++) {
+      dados_compra = groupedProducts[i];     
+      html += '<tr>'
+      html +=    '<td style="width: 40%;">'
+      html +=        dados_compra.name
+      html +=    '</td>'
+      html +=    '<td style="width: 10%;" class="td-right">'
+      html +=        dados_compra.count.toString()
+      html +=    '</td>'
+      html +=    '<td style="width: 40%;" class="td-right">'
+      html +=        dados_compra.price
+      html +=    '</td>'
+      html += '</tr>'
+  }
+  tabela_compra.innerHTML = html;
+
+  var html = '';
+
+  for (const product of user.cart.products) {
+    var cleanPrice = product.price.replace(/(R\$ )|(R\$)/g, '');
+    total_price += parseFloat(cleanPrice);
+  }
+  total_price = Number(total_price.toFixed(2));
+  total_price = total_price.toString();
+  if (total_price.split('.').at(-1).length !== 2) {
+    total_price = total_price + '0';
+  }
+  if (total_price.length == 2) {
+    total_price = '0.00';
+  }
+  html += '<p>TOTAL: R$ ' + total_price + '</p>';
+  console.log(total_price)
+  total_price_local.innerHTML = html;
 }
 
 function addToCart(obj) {
@@ -221,30 +264,3 @@ exit.addEventListener('click', function (e) {
   storage.setItem('nonLoggedUser', JSON.stringify(nonLoggedUser));
   window.location = "../index.html";
 });
-
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("modalButton");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}

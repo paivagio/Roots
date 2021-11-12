@@ -70,13 +70,12 @@
                         <img src="../images/product-promo.svg" alt="">
                     </div>
                     <div class="dropdown" style="right: 40%; padding-bottom: 30px;">
-                        <button onclick="dropDownFunction()" class="dropbtn">Todos os Produtos</button>
-                        <div id="Dropdown" class="dropdown-content">
-                            <input type="text" placeholder="Procurar" id="myInput" onkeyup="filterFunction()">
-                            <a>Saladas</a>
-                            <a>Sanduíches</a>
-                            <a>Bebidas</a>
-                        </div>
+                        <select name="Dropdown" id="Dropdown" class="dropdown-content">
+                            <option value="todos" selected>Todos os Produtos</option>
+                            <option value="SALADAS">Saladas</option>
+                            <option value="SANDUÍCHES">Sanduíches </option>
+                            <option value="BEBIDAS">Bebidas</option>
+                        </select>
                     </div>
                 </div>
     
@@ -108,8 +107,8 @@
                     </div>
                     <div class="division-line-up"></div>
                     <div class="container-cart">
-                        <div class="label">
-                            TOTAL: 
+                        <div class="label" id="total_price">
+                             
                         </div>
                     </div>
                     <div class="btn-checkout">
