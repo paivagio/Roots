@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/products.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="../index.html">
+                        <img id="homeIcon" src="../images/home.svg" alt="home">
+                    </a>
+                </li>
+                <li>
+                    <a href="../index.html">
+                        <img id="favIcon" src="../images/favorite.png" alt="favorite">
+                    </a>
+                </li>
+                <li class="cart-li">
+                    <a id="cart" href="../pages/cart.html">
+                        <img src="../images/shopping_cart.svg" type="">
+                    </a>
+                    <div id="cart-count">
+                        <embed src="../images/circle_cart.svg" type="">
+                        <span>1</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="../index.html">
+                        <img id="configIcon" src="../images/config.png" alt="config">
+                    </a>
+                </li>
+                <li><a></a></li>
+                <li>
+                    <a href="../index.html">
+                        <img id="profileIcon" src="../images/user_icon.svg" alt="profile">
+                    </a>
+                </li>
+                <li>
+                    <a id="exitIcon" href="../index.html">
+                        <img src="../images/exit.png" alt="exit">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container" style="width: 100%; overflow: hidden;">
+            <div class="main" style="width: 65%;">
+                <header class="header">
+                    <h1>Produtos</h1>
+                    <div id="search-cart">
+                        <div id="search">
+                            <input type="search" name="search" id="" placeholder="Buscar um produto">
+                            <div>
+                                <img src="../images/search.svg" type="">
+                            </div>
+                        </div>
+                    </div>
+                </header>
+    
+                <div class="filters">
+                    <div class="product-promo">
+                        <img src="../images/product-promo.svg" alt="">
+                    </div>
+                    <div class="dropdown" style="right: 40%; padding-bottom: 30px;">
+                        <button onclick="dropDownFunction()" class="dropbtn">Todos os Produtos</button>
+                        <div id="Dropdown" class="dropdown-content">
+                            <input type="text" placeholder="Procurar" id="myInput" onkeyup="filterFunction()">
+                            <a>Saladas</a>
+                            <a>Sanduíches</a>
+                            <a>Bebidas</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="products" id="productsTable">
+                    
+                </div>
+            </div>
+            <div class="cart" style="width: 35%;">
+                <div id="rectangle-cart" class="cart-content">
+                    <img src="../images/carrot.png" alt="">
+                    <h1>Carrinho</h1>
+                    <div class="division-line-up"></div>
+                    <div class="container-cart">
+                        <div class="label">
+                            Produto
+                        </div>
+                        <div class="label">
+                            Quant.
+                        </div>
+                        <div class="label">
+                            Preço
+                        </div>
+                    </div>
+                    <div class="division-line-down"></div>
+                    <div class="container-cart">
+                        <table id="carrinho_compra" style="width: 100%;">
+                            
+                        </table>
+                    </div>
+                    <div class="division-line-up"></div>
+                    <div class="container-cart">
+                        <div class="label">
+                            TOTAL: 
+                        </div>
+                    </div>
+                    <div class="btn-checkout">
+                        <a href="../pages/checkout.html">CHECKOUT</a>
+                    </div>
+                </div>
+                <p id="copyrights">Copyright © 2000-2021 | Roots ®</p>
+            </div>
+        </div>     
+    </div>
+    <footer>
+        <div>
+            <div id="social-media">
+                <a href="https://www.google.com.br">
+                    <img src="../images/facebook.svg" type="">
+                </a>
+                <a href="">
+                    <img src="../images/twitter.svg" type="">
+                </a>
+                <a href="">
+                    <img src="../images/pinterest.svg" type="">
+                </a>
+                <a href="">
+                    <img src="../images/instagram.svg" type="">
+                </a>
+            </div>
+            <span>Copyright © 2000-2021 | Roots ®</span>
+        </div>
+        <div id="flag">
+            <embed src="../images/brazil_flag.svg" type="">
+        </div>
+    </footer>
+</body>
+
+<script src="../scripts/products.js"></script>
+
+</html>

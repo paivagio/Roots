@@ -30,13 +30,13 @@ window.onload = function (e) {
             "name": 'admin',
             "address": 'admin',
             "cart": {
-                "count": 2,
+                "count": 1,
                 "products": [
                     {
                         "name": 'Salada c/ salmão',
                         "img": 'salmon_salad.jpg',
                         "category": 'SALADAS',
-                        "price": 23.90
+                        "price": 'R$23.90'
                     }
                 ],
             }
@@ -53,7 +53,7 @@ window.onload = function (e) {
         username.href = '';
         icon.src = 'images/user_icon_signed.svg';
 
-        let numProducts = currentUser.cart.count;
+        var numProducts = currentUser.cart.count;
         if (numProducts > 0) {
             cart_num.textContent = numProducts.toString();
             cart.style.opacity = "1";
@@ -63,10 +63,11 @@ window.onload = function (e) {
 
 logo.addEventListener('click', function (e) {
     storage.setItem('access', false);
+    storage.setItem('firstTime', false);
     username.textContent = 'Entrar';
     username.href = 'pages/login.html';
     icon.src = 'images/user_icon.svg';
-    cart.style.opacity = "0";
+    cart.style.opacity = "0"
 });
 
 function addToCart(obj) {
