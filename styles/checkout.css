@@ -100,7 +100,6 @@ header {
 
 .payment {
   width: 60%;
-  /* height: 100%; */
   float: left;
   padding-right: 3.20vw;
 }
@@ -130,62 +129,58 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
-  /* width: 100%; */
+  width: 100%;
 
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.payment .payment-content .payment-item img {
-  /* margin-left: 3.5vw; */ 
+.payment .payment-content .payment-item .payment-logo { /* Logo */
   margin-right: 3.5vw;
+  display: flex;
+  align-items: center;
 }
 
-.payment .payment-content .payment-info p{
-  font-size: 1.6rem;
+.payment .payment-content .payment-item .payment-logo #payment-select-box { /* Select box */
+  height:20px; 
+  width:20px;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+
+.payment .payment-content .payment-item .payment-logo #p-card { /* Cartao */
+  font-size: 1.8rem;
   font-weight: 500;
+  margin-left: 10px;
+}
+
+.payment .payment-content .payment-info p { /* Até 12x */
+  font-size: 1.6rem;
+  font-weight: 600;
   line-height: 2.6rem;
 
   padding-left: 1vw;
 }
 
-.payment .payment-content .payment-price {
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 4.8rem;
-  color: #E87121;
-
-  margin-left: 4vw;
-  margin-right: 4vw;
-}
-
-.payment .payment-content .payment-amount {
+.payment .payment-content .payment-item .payment-flags {
+  margin-right: 6vw;
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
-.payment .payment-content .payment-amount p {
-  font-size: 1.6rem;
-  line-height: 4.8rem;
-
-  margin-left: 2vw;
+.payment .payment-content .payment-item .payment-flags #mastercard-logo { 
+  margin-right: 1.7vw;
 }
 
-.payment .payment-content .payment-amount input {
-  width: 50px;
-  height: 20px;
-
-  margin-left: 15px;
-  margin-right: 2vw;
-
-  border: 2px solid #7A7878;
-  box-sizing: border-box;
-  border-radius: 5px;
-  height: 20px;
-  padding-left: 5px;
-}
+/* <---------------------------> */
+/* <---------------------------> */
+/* <---------------------------> */
+/* <---------------------------> */
+/* <---------------------------> */
+/* <---------------------------> */
+/* <---------------------------> */
 
 .summary {
   height: 100%;
@@ -406,7 +401,7 @@ header {
     flex-direction: column;
   }
   
-  .widgets .order {
+  .widgets .payment {
     width: 80vw;
     padding-right: 0;
     margin-right: 52px;
@@ -418,7 +413,7 @@ header {
     margin-right: 52px;
   }
 
-  .widgets .order #rectangle-order {
+  .widgets .payment #rectangle-order {
     width: 80vw;
   }
 
@@ -426,7 +421,7 @@ header {
     width: 80vw;
   }
 
-  .widgets .order .order-item {
+  .widgets .payment .payment-item {
     width: 90%;
     justify-content: space-between;
   }
